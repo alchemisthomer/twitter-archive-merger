@@ -1,0 +1,101 @@
+:root {
+  --bg: #15202b;
+  --panel: #1e2732;
+  --border: #2f3b47;
+  --text: #e7e9ea;
+  --muted: #8b98a5;
+  --accent: #1d9bf0;
+  --hl: #ffd166;
+  --card: #192734;
+  --card-hover: #202e3c;
+  --rt: #00ba7c;
+  --reply: #a674ff;
+  --note: #f7b955;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+body { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
+
+/* sidebar */
+#sidebar { position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto; padding: 20px; background: var(--panel); border-right: 1px solid var(--border); }
+#sidebar header h1 { margin: 0 0 4px; font-size: 20px; }
+#sidebar header p { margin: 0 0 20px; color: var(--muted); font-size: 12px; }
+#sidebar h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 20px 0 8px; }
+#sidebar section { border-top: 1px solid var(--border); padding-top: 4px; }
+#sidebar section:first-of-type { border-top: 0; padding-top: 0; }
+
+.chk { display: flex; align-items: center; gap: 6px; padding: 4px 0; font-size: 13px; cursor: pointer; user-select: none; }
+.chk input { margin: 0; }
+
+.account { display: flex; align-items: center; gap: 8px; padding: 6px 0; cursor: pointer; user-select: none; }
+.account img { width: 28px; height: 28px; border-radius: 50%; background: var(--border); flex: none; }
+.account .placeholder { width: 28px; height: 28px; border-radius: 50%; background: var(--border); flex: none; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; color: var(--muted); }
+.account .name { font-weight: 600; font-size: 13px; }
+.account .handle { color: var(--muted); font-size: 11px; }
+.account .count { margin-left: auto; color: var(--muted); font-size: 11px; }
+.account input { margin: 0; }
+
+#search { width: 100%; padding: 8px 10px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+#search:focus { outline: none; border-color: var(--accent); }
+
+#years { display: flex; flex-wrap: wrap; gap: 4px; }
+#years button { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 4px 8px; border-radius: 4px; cursor: pointer; font: inherit; font-size: 12px; }
+#years button:hover { background: var(--card-hover); }
+#years button.active { background: var(--accent); border-color: var(--accent); color: white; }
+
+#sidebar footer { margin-top: 24px; border-top: 1px solid var(--border); padding-top: 12px; color: var(--muted); font-size: 11px; }
+
+/* timeline */
+#timeline { padding: 20px 32px 60px; max-width: 780px; }
+.month-header { position: sticky; top: 0; background: var(--bg); padding: 12px 0; margin: 24px 0 8px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; z-index: 5; }
+
+.tweet { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+.tweet .head { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+.tweet .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--border); flex: none; overflow: hidden; }
+.tweet .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.tweet .avatar .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--muted); }
+.tweet .who { display: flex; flex-direction: column; }
+.tweet .who .name { font-weight: 700; }
+.tweet .who .handle { color: var(--muted); font-size: 12px; }
+.tweet .when { margin-left: auto; color: var(--muted); font-size: 12px; text-align: right; }
+.tweet .when a { color: inherit; text-decoration: none; }
+.tweet .when a:hover { color: var(--accent); }
+
+.tweet .body { white-space: pre-wrap; word-wrap: break-word; }
+.tweet .body a { color: var(--accent); text-decoration: none; }
+.tweet .body a:hover { text-decoration: underline; }
+.tweet .note-expanded { border-left: 3px solid var(--note); padding-left: 10px; margin-top: 8px; white-space: pre-wrap; color: var(--text); }
+
+.tweet .badges { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+.tweet .badge { font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--border); color: var(--muted); }
+.tweet .badge.rt { background: rgba(0, 186, 124, 0.15); color: var(--rt); }
+.tweet .badge.reply { background: rgba(166, 116, 255, 0.15); color: var(--reply); }
+.tweet .badge.note { background: rgba(247, 185, 85, 0.15); color: var(--note); }
+
+.tweet .media { display: grid; gap: 6px; margin-top: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.tweet .media img, .tweet .media video { width: 100%; border-radius: 8px; display: block; background: var(--border); }
+.tweet .media .missing { padding: 12px; border: 1px dashed var(--border); border-radius: 8px; color: var(--muted); font-size: 12px; text-align: center; }
+
+.tweet .foot { margin-top: 8px; display: flex; gap: 12px; font-size: 12px; color: var(--muted); }
+.tweet mark { background: var(--hl); color: black; padding: 0 2px; border-radius: 2px; }
+
+#loading, #empty { text-align: center; padding: 40px; color: var(--muted); }
+
+/* profile hero — shown when exactly one account is filter-selected */
+.profile-hero { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 20px; }
+.profile-hero .banner { height: 180px; background-color: var(--border); background-size: cover; background-position: center; }
+.profile-hero .body { padding: 0 20px 20px; position: relative; }
+.profile-hero .avatar { width: 96px; height: 96px; border-radius: 50%; border: 4px solid var(--card); background: var(--border); margin-top: -48px; overflow: hidden; }
+.profile-hero .avatar img { width: 100%; height: 100%; object-fit: cover; }
+.profile-hero .avatar .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 32px; color: var(--muted); }
+.profile-hero .who { margin-top: 12px; }
+.profile-hero .who .name { font-size: 22px; font-weight: 800; }
+.profile-hero .who .handle { color: var(--muted); font-size: 14px; }
+.profile-hero .bio { margin-top: 10px; white-space: pre-wrap; word-wrap: break-word; line-height: 1.5; }
+.profile-hero .stats { margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 780px) {
+  body { grid-template-columns: 1fr; }
+  #sidebar { position: static; height: auto; }
+}

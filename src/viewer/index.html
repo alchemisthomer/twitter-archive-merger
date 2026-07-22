@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twitter Archive — merged timeline</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <header>
+      <h1>🐢 archive</h1>
+      <p id="meta"></p>
+    </header>
+
+    <section id="accounts-section">
+      <h2>Accounts</h2>
+      <div id="accounts"></div>
+    </section>
+
+    <section>
+      <h2>Search</h2>
+      <input type="search" id="search" placeholder="text, hashtag, @mention…" autocomplete="off" />
+    </section>
+
+    <section>
+      <h2>Filter</h2>
+      <label class="chk"><input type="checkbox" id="hide-retweets" /> hide retweets</label>
+      <label class="chk"><input type="checkbox" id="hide-replies" /> hide replies</label>
+    </section>
+
+    <section>
+      <h2>Jump to year</h2>
+      <div id="years"></div>
+    </section>
+
+    <section>
+      <h2>Order</h2>
+      <label class="chk"><input type="radio" name="order" value="desc" checked /> newest first</label>
+      <label class="chk"><input type="radio" name="order" value="asc" /> oldest first</label>
+    </section>
+
+    <footer>
+      <p id="counts"></p>
+    </footer>
+  </aside>
+
+  <main id="timeline">
+    <div id="sentinel-top"></div>
+    <div id="tweets"></div>
+    <div id="sentinel-bottom"></div>
+    <div id="loading" hidden>loading…</div>
+    <div id="empty" hidden>no tweets match</div>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
