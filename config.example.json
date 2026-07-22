@@ -1,0 +1,14 @@
+{
+  "archives": [
+    {
+      "handle": "your-handle-1",
+      "zip": "/absolute/path/to/first-archive.zip"
+    },
+    {
+      "handle": "your-handle-2",
+      "zip": "/absolute/path/to/second-archive.zip"
+    }
+  ],
+  "outputDir": ".data",
+  "servePort": 7716
+}

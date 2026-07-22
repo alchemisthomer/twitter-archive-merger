@@ -1,0 +1,16 @@
+{
+  "name": "twitter-archive-merger",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Merge multiple Twitter/X archive zips into one chronological browsable timeline.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node bin/build.mjs",
+    "serve": "node bin/serve.mjs",
+    "start": "npm run build && npm run serve"
+  },
+  "dependencies": {}
+}
